@@ -1,0 +1,24 @@
+{
+  "name": "TheRebootSF-slides",
+  "version": "1.0.0",
+  "description": "a place for the slides for The Reboot SF talks",
+  "engines": {
+    "node": ">=14.18"
+  },
+  "scripts": {
+    "check-engine": "npx check-engine",
+    "postinstall": "npm run check-engine",
+    "start": "npx http-server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "check-engine": "^1.10.1",
+    "http-server": "^14.1.0"
+  },
+  "dependencies": {
+    "reveal.js": "^4.2.1"
+  }
+}
