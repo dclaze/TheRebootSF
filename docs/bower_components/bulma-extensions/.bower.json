@@ -1,0 +1,33 @@
+{
+  "name": "bulma-extensions",
+  "description": "Set of extensions for Bulma.io CSS Framework",
+  "main": "extensions.sass",
+  "version": "6.2.4",
+  "authors": [
+    "Wikiki <wikiki@protonmail.com> (https://wikiki.github.io/bulma-extensions/overview)"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "bulma",
+    "extensions",
+    "bulma.io"
+  ],
+  "homepage": "https://github.com/Wikiki/bulma-extensions",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "_release": "6.2.4",
+  "_resolution": {
+    "type": "version",
+    "tag": "v6.2.4",
+    "commit": "a2372c3d4f0149dfa24dad403d73a621477e20f8"
+  },
+  "_source": "https://github.com/Wikiki/bulma-extensions.git",
+  "_target": "^6.2.4",
+  "_originalSource": "bulma-extensions",
+  "_direct": true
+}

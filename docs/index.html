@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TheReboot SF</title>
+    <link rel="stylesheet" href="bower_components/bulma/css/bulma.min.css">
+    <link rel="stylesheet" href="bower_components/bulma-extensions/dist/css/bulma-extensions.min.css">
+    <link rel="stylesheet" href="bower_components/animate.css/animate.min.css"/>
+    <link rel="stylesheet" href="bower_components/font-awesome/css/all.min.css">
+    <link rel="stylesheet" href="app.css">
+    <link rel="icon" href="favicon.ico">
+  </head>
+  <body>
+    <div id="app">
+      <div ref="loader" class="loader-wrapper is-active" v-if="showLoader">
+          <div class="loader is-loading"></div>
+      </div>
+      <div class="fullscreen" v-bind:class="{ up: up }">
+        <nav class="navbar is-transparent is-mobile" role="navigation" aria-label="main navigation">
+          <div class="navbar-brand">
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navigationBar">
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+            </a>
+          </div>
+          <div id="navigationBar" class="navbar-menu">
+            <div class="navbar-start">
+              <a class="navbar-item" @click="section='home'" v-bind:class="{ 'is-active': section=='home' }">
+                Home
+              </a>
+              <a class="navbar-item" @click="section='schedule'" v-bind:class="{ 'is-active': section=='schedule' }">
+                Schedule
+              </a>
+              <a class="navbar-item" @click="section='about'" v-bind:class="{ 'is-active': section=='about' }">
+                About
+              </a>
+              <a class="navbar-item" @click="section='contact-us'" v-bind:class="{ 'is-active': section=='contact-us' }">
+                Contact Us
+              </a>
+            </div>
+            <div class="navbar-end">
+              <a class="navbar-item" href="https://github.com/dclaze/TheRebootSF">
+                <div class="buttons">
+                  <button class="button is-medium">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>GitHub</span>
+                  </button>
+                </div>
+              </a>
+            </div>
+          </div>
+        </nav>
+        <section>
+          <div class="outlet-container">
+            <div class="outlet" @click="up=!up;">
+              <div class="toggle">
+                <div class="off-label">
+                  OFF
+                </div>
+                <div class="switch" v-bind:class="{ up: up }">
+                  <div class="face front">
+                    <span v-if="showLabel">front</span>
+                  </div>
+                  <div class="face back">
+                    <span v-if="showLabel">back</span>
+                  </div>
+                  <div class="face right">
+                    <span v-if="showLabel">right</span>
+                  </div>
+                  <div class="face left">
+                    <span v-if="showLabel">left</span>
+                  </div>
+                  <div class="face top">
+                    <span v-if="showLabel">top</span>
+                  </div>
+                </div>
+                <div class="on-label">
+                  ON
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="hero is-small">
+            <div class="hero-body">
+
+              <p class="title">
+                The Reboot SF
+              </p>
+              <p class="subtitle">
+                A public meetup focused on hacking in a post pandemic world, based in San Francisco
+              </p>
+            </div>
+          </div>
+        </section>
+        <section v-show="section=='home'" class="home animate__animated animate__fadeInUp">
+          <div class="columns is-desktop is-centered">
+            <div class="column is-half">
+              <div class="container">
+                <div class="box highlight">
+                  <h1 class="title">First event coming soon!</h1>
+                  <div class="">
+                    <b>Location:</b> TBD
+                  </div>
+                  <div class="">
+                    <b>Date:</b> TBD
+                  </div>
+                  <div class="">
+                    <b>Time:</b> TBD
+                  </div>
+                  <div class="container action-footer" @click="section='schedule'">
+                    <button class="button is-info">View Schedule</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </section>
+        <section v-show="section=='schedule'" class="schedule animate__animated animate__fadeInUp">
+          <div class="timeline">
+            <div class="columns is-mobile is-centered">
+              <div class="column is-half">
+                <header class="timeline-header">
+                  <span class="tag is-medium is-primary">Start</span>
+                </header>
+                <div class="timeline-item">
+                  <div class="timeline-marker"></div>
+                  <div class="timeline-content">
+                    <p class="heading">April 2022</p>
+                    <p>Launch event</p>
+                  </div>
+                </div>
+                <div class="timeline-item">
+                  <div class="timeline-marker is-icon">
+                    <i class="fa fa-flag"></i>
+                  </div>
+                  <div class="timeline-content">
+                    <p class="heading">June 2022</p>
+                    <p>Event #2 (Details coming soon)</p>
+                  </div>
+                </div>
+                <div class="timeline-item">
+                  <div class="timeline-marker is-icon">
+                    <i class="fa fa-flag"></i>
+                  </div>
+                  <div class="timeline-content">
+                    <p class="heading">July 2022</p>
+                    <p>Event #3 (Details coming soon)</p>
+                  </div>
+                </div>
+                <div class="timeline-header">
+                  <span class="tag is-medium is-primary">End</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section v-show="section=='about'" class="about animate__animated animate__fadeInUp">
+          <div class="columns is-mobile is-centered">
+            <div class="column is-half">
+              <div class="box highlight">
+                Coming Soon
+              </div>
+            </div>
+          </div>
+        </section>
+        <section v-show="section=='contact-us'" class="contact-us animate__animated animate__fadeInUp">
+          <div class="columns is-mobile is-centered">
+            <div class="column is-half">
+              <div class="box highlight">
+                Coming Soon
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <script src="bower_components/vue/dist/vue.min.js"></script>
+    <script src="bower_components/bulma-extensions/dist/js/bulma-extensions.min.js"></script>
+    <script>
+      new Vue({
+        el: '#app',
+        mounted: function() {
+          this.$refs.loader.classList.remove('is-active');
+          this.showLoader = false;
+        },
+        data: {
+          up: false,
+          showLabel: false,
+          showLoader: true,
+          section: 'home',
+        }
+      });
+    </script>
+  </body>
+</html>

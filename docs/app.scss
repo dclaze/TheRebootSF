@@ -1,0 +1,179 @@
+@use 'sass:math';
+
+$width: 35px;
+$height: 100px;
+$depth: 25px;
+$top_angle: -10deg;
+$roundness: 10px;
+$background-color: #faf33e;
+$background-color-on: lighten($background-color, 20%);
+
+.loader-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: #fff;
+    opacity: 0;
+    z-index: -1;
+    transition: opacity .3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+
+        .loader {
+            height: 80px;
+            width: 80px;
+        }
+
+    &.is-active {
+        opacity: 1;
+        z-index: 1;
+    }
+}
+
+.navbar-item:hover, .navbar-item.is-active {
+  text-decoration: underline;
+}
+
+.home {
+  margin: 2em;
+}
+
+.highlight {
+  margin: auto;
+}
+
+.outlet-container {
+  zoom: 0.4;
+  margin-left: 36px;
+  margin-top: 36px;
+  float: left;
+}
+
+.outlet {
+  width: 200px;
+  height: 200px;
+  border-radius: 100px;
+  background-color: black;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.toggle {
+  width: $width;
+  height: $height;
+  perspective: 600px;
+  background-color: white;
+  border-radius: $roundness;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+
+  .off-label, .on-label {
+    opacity: 0.2;
+    z-index: -1;
+  }
+
+  .off-label {
+    margin-top: 10px;
+    position: absolute;
+    top: 0;
+  }
+
+  .on-label {
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 10px;
+  }
+}
+
+.switch {
+  width: $width;
+  height: $height;
+  position: relative;
+  transform-style: preserve-3d;
+  margin-top: -$height;
+}
+
+.face {
+  background-color: white;
+}
+
+.front  { transform: rotateY(  0deg) translateZ(math.div($depth,2)); }
+.back   { transform: rotateY(180deg) translateZ(math.div($depth,2)); }
+.right  { transform: rotateY( 90deg) translateZ($width - math.div($depth,2) - $depth); }
+.left   { transform: rotateY(-90deg) translateZ(math.div($depth,2) + $depth); }
+.top    { transform: rotateX( 90deg) translateZ($depth); }
+
+$bottom_angle: -40deg;
+$transition_duration: 0.5s;
+
+.fullscreen, .switch {
+  transition: transform $transition_duration, background-color $transition_duration;
+}
+
+.switch {
+  transform-origin: bottom right;
+  transform: translateZ(-150px) rotate3d(7, 0.2, 0.4, -.4turn);
+}
+
+.switch.up {
+  transform: translateZ(-150px) rotateY($top_angle) rotateX(-30deg) rotateZ(0deg);
+}
+
+.fullscreen {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.fullscreen.up {
+  background-color: $background-color-on;
+}
+
+.face {
+  position: absolute;
+  border: 1px solid gray;
+  font-size: 40px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.front,
+.back {
+  width: $width;
+  height: $height;
+  line-height: $height;
+}
+
+.right,
+.left {
+  width: $depth;
+  height: $height;
+  left: $depth;
+  line-height: $height;
+}
+
+.top {
+  width: $width;
+  height: $depth;
+  top: math.div($depth,2);
+  line-height: $depth;
+}
+
+.action-footer {
+  text-align: center;
+}

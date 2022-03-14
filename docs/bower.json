@@ -1,0 +1,23 @@
+{
+  "name": "TheRebootSF",
+  "description": "A public meetup focused on hacking in a post pandemic world, based in San Francisco",
+  "authors": [
+    "Doug Colaizzo <dcolaizzo@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/dclaze/TheRebootSF",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "animate.css": "^4.1.1",
+    "bulma-extensions": "^6.2.4",
+    "font-awesome": "^6.0.0",
+    "bulma": "^0.9.3",
+    "vue": "^2.6.14"
+  }
+}
